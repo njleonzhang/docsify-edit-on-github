@@ -8,4 +8,5 @@ EditOnGithubPlugin.create(docBase, title)
 ```
 
 [sample coded](https://github.com/njleonzhang/vue-data-tables/blob/master/docs/index.html#L83)
+
 [sample](https://njleonzhang.github.io/vue-data-tables/#/renderTable)
