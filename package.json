@@ -1,0 +1,19 @@
+{
+  "name": "docsify-edit-on-github",
+  "version": "1.0.0",
+  "description": "edit on github plugin for docsify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njleonzhang/docsify-edit-on-github.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njleonzhang/docsify-edit-on-github/issues"
+  },
+  "homepage": "https://github.com/njleonzhang/docsify-edit-on-github#readme"
+}
