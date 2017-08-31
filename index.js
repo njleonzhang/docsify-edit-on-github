@@ -1,4 +1,6 @@
 ;(function(win) {
+  win.EditOnGithubPlugin = {}
+
   function create(docBase, title) {
     title = title || 'Edit on github'
 
@@ -16,12 +18,14 @@
       }
     }
 
+    win.EditOnGithubPlugin.editDoc = editDoc
+
     return function(hook) {
       var header = [
         '<div style="overflow: auto">',
         '<p style="float: right"><a href="',
         docBase,
-        '" target="_blank" onclick="editDoc(event)">',
+        '" target="_blank" onclick="EditOnGithubPlugin.editDoc(event)">',
         title,
         '</a></p>',
         '</div>'
@@ -33,8 +37,5 @@
     }
   }
 
-
-  win.editOnGithubPlugin = {
-    created: created
-  }
-} (window)
+  win.EditOnGithubPlugin.create = create
+}) (window)
