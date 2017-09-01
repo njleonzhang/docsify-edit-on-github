@@ -3,13 +3,13 @@
 
   function create(docBase, docEditBase, title) {
     title = title || 'Edit on github'
+    docEditBase = docBase.replace(/\/blob\//, '/edit/')
 
-    function editDoc(event) {
-      var matchedArray = location.hash.match(/^#\/(.*)\?|^#\/(.*)$/)
-      var docName = matchedArray && (matchedArray[1] || matchedArray[2])
+    function editDoc(event, vm) {
+      var docName = vm.route.file
 
       if (docName) {
-        var editLink = docEditBase + docName + '.md'
+        var editLink = docEditBase + docName
         window.open(editLink)
         event.preventDefault()
         return false
@@ -20,12 +20,16 @@
 
     win.EditOnGithubPlugin.editDoc = editDoc
 
-    return function(hook) {
+    return function(hook, vm) {
+      win.EditOnGithubPlugin.onClick = function(event) {
+        EditOnGithubPlugin.editDoc(event, vm)
+      }
+
       var header = [
         '<div style="overflow: auto">',
         '<p style="float: right"><a href="',
         docBase,
-        '" target="_blank" onclick="EditOnGithubPlugin.editDoc(event)">',
+        '" target="_blank" onclick="EditOnGithubPlugin.onClick(event)">',
         title,
         '</a></p>',
         '</div>'
