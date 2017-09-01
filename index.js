@@ -1,7 +1,7 @@
 ;(function(win) {
   win.EditOnGithubPlugin = {}
 
-  function create(docBase, title) {
+  function create(docBase, docEditBase, title) {
     title = title || 'Edit on github'
 
     function editDoc(event) {
@@ -9,7 +9,7 @@
       var docName = matchedArray && (matchedArray[1] || matchedArray[2])
 
       if (docName) {
-        var editLink = docBase + docName + '.md'
+        var editLink = docEditBase + docName + '.md'
         window.open(editLink)
         event.preventDefault()
         return false
