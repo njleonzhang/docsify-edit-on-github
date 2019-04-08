@@ -1,6 +1,6 @@
 {
   "name": "docsify-edit-on-github",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "edit on github plugin for docsify",
   "main": "index.js",
   "scripts": {

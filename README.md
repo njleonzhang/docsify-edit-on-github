@@ -2,7 +2,7 @@
 A plugin for docsify to generate a `edit on github` button on every pages. click the button to open corresponding `md` editing page on github.
 
 ```html
-<script src="//unpkg.com/docsify-edit-on-github@1.0.1/index.js"></script>
+<script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
 ```
 
 ```html
