@@ -1,4 +1,8 @@
 ;(function(win) {
+  function isFunction(functionToCheck) {
+   return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]'
+  }
+
   win.EditOnGithubPlugin = {}
 
   function create(docBase, docEditBase, title) {
@@ -20,23 +24,36 @@
 
     win.EditOnGithubPlugin.editDoc = editDoc
 
+    function generateHeader(title) {
+      return header = [
+        '<div style="overflow: auto">',
+        '<p style="float: right"><a style="text-decoration: underline; cursor: pointer"',
+        'onclick="EditOnGithubPlugin.onClick(event)">',
+        title,
+        '</a></p>',
+        '</div>'
+      ].join('')
+    }
+
     return function(hook, vm) {
       win.EditOnGithubPlugin.onClick = function(event) {
         EditOnGithubPlugin.editDoc(event, vm)
       }
 
-      var header = [
-        '<div style="overflow: auto">',
-        '<p style="float: right"><a style="text-decoration: underline; cursor: pointer"',
-        'target="_blank" onclick="EditOnGithubPlugin.onClick(event)">',
-        title,
-        '</a></p>',
-        '</div>'
-      ].join('')
+      if (isFunction(title)) {
 
-      hook.afterEach(function (html) {
-        return header + html
-      })
+        hook.afterEach(function (html) {
+          return generateHeader(title(vm.route.file)) + html
+        })
+      } else {
+        var header = generateHeader(title)
+
+        hook.afterEach(function (html) {
+          return header + html
+        })
+      }
+
+
     }
   }
 

@@ -16,8 +16,19 @@
       name: 'docsify-edit-on-github',
       repo: 'https://github.com/njleonzhang/docsify-edit-on-github',
       plugins: [
+        // EditOnGithubPlugin.create(
+        //   'https://github.com/njleonzhang/docsify-edit-on-github/blob/master/'
+        // ),
         EditOnGithubPlugin.create(
-          'https://github.com/njleonzhang/docsify-edit-on-github/blob/master/'
+          'https://gitlab.meipian.cn/fore/project/article-core/blob/master/',
+          null,
+          function(file) {
+            if (file.indexOf('en') === -1) {
+              return '编辑'
+            } else {
+              return 'edit on git'
+            }
+          }
         )
       ]
     }
