@@ -27,9 +27,8 @@
 
       var header = [
         '<div style="overflow: auto">',
-        '<p style="float: right"><a href="',
-        docBase,
-        '" target="_blank" onclick="EditOnGithubPlugin.onClick(event)">',
+        '<p style="float: right"><a style="text-decoration: underline; cursor: pointer"',
+        'target="_blank" onclick="EditOnGithubPlugin.onClick(event)">',
         title,
         '</a></p>',
         '</div>'

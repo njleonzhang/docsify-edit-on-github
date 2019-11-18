@@ -4,7 +4,7 @@
   "description": "edit on github plugin for docsify",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "docsify serve test"
   },
   "repository": {
     "type": "git",
